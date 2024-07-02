@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.finaltp3.R
 import com.example.finaltp3.databinding.FragmentListBinding
-
 import com.example.finaltp3.adapters.FoodCategoriesAdapter
 import com.example.finaltp3.adapters.RestaurantsListAdapter
 import com.example.finaltp3.providers.FoodCategoriesProvider
 import com.example.finaltp3.providers.RestaurantsListProvider
+import com.example.finaltp3.entities.RestaurantsListModel
 
 class List : Fragment() {
     private var _binding: FragmentListBinding? = null
@@ -35,12 +36,26 @@ class List : Fragment() {
         // Configurar el adaptador para la lista de restaurantes
         restaurantsAdapter = RestaurantsListAdapter(RestaurantsListProvider.restaurantsList) { selectedRestaurant ->
             // Maneja la lógica cuando se selecciona un restaurante
+            navigateToDetail(selectedRestaurant)
         }
         binding.restaurantsListRecycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.restaurantsListRecycler.adapter = restaurantsAdapter
 
         return binding.root
     }
+
+    private fun navigateToDetail(restaurant: RestaurantsListModel) {
+        val detailFragment = DetailFragment()
+        val bundle = Bundle()
+        bundle.putSerializable("restaurant", restaurant)
+        detailFragment.arguments = bundle
+
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.nav_host, detailFragment)  // Asegúrate de que `fragment_container` es el ID del contenedor de fragmentos en tu actividad
+            .addToBackStack(null)
+            .commit()
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
