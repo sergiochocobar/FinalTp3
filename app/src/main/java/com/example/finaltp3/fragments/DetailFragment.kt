@@ -40,33 +40,6 @@ class DetailFragment : Fragment() {
         _binding = null
     }
 
-//    private var _binding: FragmentDetailBinding? = null
-//    private val binding get() = _binding!!
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        _binding = FragmentDetailBinding.inflate(inflater, container, false)
-//
-//        // Obtener los argumentos pasados al fragmento usando Safe Args
-//        val args: DetailFragmentArgs by navArgs()
-//        val restaurant = args.restaurant
-//
-//        // Configurar la vista con los datos del restaurante
-//        binding.restaurantTitle.text = restaurant.title
-//        binding.restaurantSubtitle.text = restaurant.subtitle
-//        binding.restaurantQualification.text = restaurant.qualification
-//        // Usa Glide para cargar la imagen si es necesario
-//        Glide.with(this).load(restaurant.imageResId).into(binding.restaurantImage)
-//
-//        return binding.root
-//    }
-//
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        _binding = null
-//    }
 }
 
 
