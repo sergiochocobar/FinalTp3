@@ -22,8 +22,7 @@ class RestaurantsListHolder(view: View, private val onClick: (RestaurantsListMod
         Glide.with(image.context).load(model.imageResId).into(image)
 
         itemView.setOnClickListener {
-            //onClick(model)
+            onClick(model)
         }
     }
 }
-
