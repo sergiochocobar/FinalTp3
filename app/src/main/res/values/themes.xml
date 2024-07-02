@@ -6,4 +6,11 @@
     </style>
 
     <style name="Theme.FinalTp3" parent="Base.Theme.FinalTp3" />
+
+    <!-- Splash Screen Theme -->
+    <style name="SplashTheme" parent="Theme.FinalTp3">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:statusBarColor">@color/backgroundColor</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
 </resources>
